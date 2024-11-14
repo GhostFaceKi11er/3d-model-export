@@ -1,0 +1,7 @@
+README.md
+setup.py
+my_3d_toolpackage.egg-info/PKG-INFO
+my_3d_toolpackage.egg-info/SOURCES.txt
+my_3d_toolpackage.egg-info/dependency_links.txt
+my_3d_toolpackage.egg-info/requires.txt
+my_3d_toolpackage.egg-info/top_level.txt
