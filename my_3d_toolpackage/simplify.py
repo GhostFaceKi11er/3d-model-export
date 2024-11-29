@@ -1,13 +1,10 @@
 import bpy
 import json
 
-def simplify(output_path, decimate_ratio):
-    with open(output_path, 'r') as f:
-            data = json.load(f)
-
-    for link_info in data["links"]:
-        if link_info['collision'] != '':
-            link_name = link_info["name"]
+def simplify(decimate_ratio, data):
+    for link in data["links"]:
+        if link['collision'] or link['visual']:
+            link_name = link["name"]
             bpy.ops.object.select_all(action='DESELECT')
             obj = bpy.data.objects.get(link_name)
                 
