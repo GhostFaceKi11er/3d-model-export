@@ -14,8 +14,8 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(prog='test',description=(
         '''
-        urdf_path='/home/haitaoxu/code/robot_dart-master/utheque/ur3e/ur3e.urdf'   输入urdf的路径
-        output_foler='/home/haitaoxu/3d-model-export/data'   输入输出数据的文件夹路径
+        urdf_path='./ur3e/ur3e.urdf'   输入urdf的路径
+        output_foler='./data'   输入输出数据的文件夹路径
         
         --output_type 指定输出文件类型. 选项: stl、glb、obj
         --decimate=0.1   输入decimate ratio来简化模型
@@ -47,8 +47,8 @@ def main():
         except ValueError:
             raise argparse.ArgumentTypeError(f"Invalid configuration: {value}, 务必按正确格式输入！")
 
-    parser.add_argument('urdf_path', help="输入urdf的路径 示例: --urdf_path='/home/haitaoxu/code/robot_dart-master/utheque/ur3e/ur3e.urdf'")
-    parser.add_argument('output_folder', help="输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='/home/haitaoxu/3d-model-export/data'")
+    parser.add_argument('urdf_path', help="输入urdf的路径 示例: --urdf_path='./ur3e/ur3e.urdf'")
+    parser.add_argument('output_folder', help="输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='./data'")
     
     parser.add_argument('--output_type', choices=['stl', 'glb', 'obj'], default='stl', help="指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb")
     parser.add_argument('--decimate_ratio', type=check_decimate_ratio, help="输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1",default=1)
