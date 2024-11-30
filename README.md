@@ -1,7 +1,8 @@
 # model_export
 基于blender(3.6.0)的机器人外发模型操作工具
-<pre>
+
 # 基本信息
+<pre>
 setup(
     name='model_export',  
     version='0.1.0',  
@@ -19,8 +20,9 @@ setup(
     注意: 如果电脑一开始没有numpy和networkx, 那么直接安装urchin就会自动安装这两个库. pip install urchin  
     python=3.10.12,  
 )  
-
+<pre>
  #  帮助
+<pre>
 usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path  
 
 positional arguments:  
@@ -36,7 +38,7 @@ options:
                         输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1  
   --create_convex_hull  启用凸包创建功能（默认禁用）  
   --joint_localframe    joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe  
-
+<pre>
 # 代码框架
 
 
@@ -59,4 +61,4 @@ python -m script.main './models/ur3e/ur3e.urdf' './data' './models/ur3e/ur3e_joi
 python -m script.main './models/franka/franka.urdf' './data' './models/franka/franka_joints.yaml' --decimate=0.5 --create_convex_hull
 
 ```
-<pre>
+
