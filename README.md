@@ -3,22 +3,22 @@
 
 # 基本信息
 setup(
-    name='model_export',
-    version='0.1.0',        
-    description='A toolpackage for 3D processing and manipulation in Python from urdf to blender', 
-    author='Haitao Xu',  
-    author_email='haitaoxu_tok@outlook.com', 
-    url='https://github.com/GhostFaceKi11er/3d-model-export.git',
-    install_requires=[
-        'bpy: 3.6.0',
-        'urchin: 0.0.29(默认的最新版)',
-        'numpy: 2.1.3(默认的最新版)/1.23.5',
-        'networkx: 3.4.2(默认的最新版)/2.2',
-        'PyYAML: 5.4.1'
-    ],
-    注意: 如果电脑一开始没有numpy和networkx, 那么直接安装urchin就会自动安装这两个库. pip install urchin
-    python=3.10.12,
-)
+    name='model_export',  
+    version='0.1.0',  
+    description='A toolpackage for 3D processing and manipulation in Python from urdf to blender',   
+    author='Haitao Xu',    
+    author_email='haitaoxu_tok@outlook.com',   
+    url='https://github.com/GhostFaceKi11er/3d-model-export.git',  
+    install_requires=[  
+        'bpy: 3.6.0',  
+        'urchin: 0.0.29(默认的最新版)',  
+        'numpy: 2.1.3(默认的最新版)/1.23.5',  
+        'networkx: 3.4.2(默认的最新版)/2.2',  
+        'PyYAML: 5.4.1'  
+    ],  
+    注意: 如果电脑一开始没有numpy和networkx, 那么直接安装urchin就会自动安装这两个库. pip install urchin  
+    python=3.10.12,  
+)  
 
  #  帮助
 usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path
