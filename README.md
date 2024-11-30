@@ -8,7 +8,7 @@ setup(
     description='A toolpackage for 3D processing and manipulation in Python from urdf to blender',   
     author='Haitao Xu',    
     author_email='haitaoxu_tok@outlook.com',   
-    url='[https://github.com/GhostFaceKi11er/model_export.git]',  
+    url='https://github.com/GhostFaceKi11er/model_export.git',  
     install_requires=[  
         'bpy: 3.6.0',  
         'urchin: 0.0.29(默认的最新版)',  
