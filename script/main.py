@@ -39,7 +39,7 @@ def main():
         --output_type 指定输出文件类型. 选项: stl、glb、obj
         --decimate=0.1   输入decimate ratio来简化模型
         --create_convex_hull  输入指令创建凸包
-        --joint_localframe 默认joint的xyzrpy在输出的json文件中为worldframe,如果需要的是附坐标系就输入指令'''), formatter_class=argparse.RawDescriptionHelpFormatter)
+        --joint_localframe joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe'''), formatter_class=argparse.RawDescriptionHelpFormatter)
 
     def check_decimate_ratio(value):
         try:
@@ -71,7 +71,7 @@ def main():
     parser.add_argument('--output_type', choices=['stl', 'glb', 'obj'], default='stl', help="指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb")
     parser.add_argument('--decimate_ratio', type=check_decimate_ratio, help="输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1",default=1)
     parser.add_argument('--create_convex_hull', action='store_true', help="启用凸包创建功能（默认禁用）")
-    parser.add_argument('--joint_localframe', action='store_true', help="joint启用附坐标系, 默认joint的xyzrpy在输出的json文件中为worldframe")
+    parser.add_argument('--joint_localframe', action='store_true', help="joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe")
     
     args = parser.parse_args()
 
