@@ -3,8 +3,8 @@
 
 # 基本信息
 setup(
-    name='model_export',  
-    version='0.1.0',  
+  --  name='model_export',  
+  --  version='0.1.0',  
     description='A toolpackage for 3D processing and manipulation in Python from urdf to blender',   
     author='Haitao Xu',    
     author_email='haitaoxu_tok@outlook.com',   
