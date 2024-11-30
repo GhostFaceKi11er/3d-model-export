@@ -2,7 +2,6 @@
 基于blender(3.6.0)的机器人外发模型操作工具
 
 # 基本信息
-'''
 setup(
     name='model_export',  
     version='0.1.0',  
@@ -20,9 +19,7 @@ setup(
     注意: 如果电脑一开始没有numpy和networkx, 那么直接安装urchin就会自动安装这两个库. pip install urchin  
     python=3.10.12,  
 )  
-'''
  #  帮助
-'''
 usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path  
 
 positional arguments:  
@@ -32,13 +29,10 @@ positional arguments:
 
 options:  
   -h, --help            show this help message and exit  
-  --output_type {stl,glb,obj}  
-                        指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb  
-  --decimate_ratio DECIMATE_RATIO  
-                        输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1  
-  --create_convex_hull  启用凸包创建功能（默认禁用）  
-  --joint_localframe    joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe  
-'''
+  --output_type {stl,glb,obj}        指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb  
+  --decimate_ratio DECIMATE_RATIO         输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1  
+  --create_convex_hull            启用凸包创建功能（默认禁用）  
+  --joint_localframe             joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe  
 # 代码框架
 
 
