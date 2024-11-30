@@ -46,7 +46,7 @@ options:
 - 建convex_hull
 - 在特定姿态下更改参考坐标系为基座坐标系
 - 导出3d模型
-<pre>
+
 # 示例
 ```
 python -m <exectue-file> <urdf-path> <output-folder> <yaml-path> <--decimate=decimate_ratio> <--create_convex_hull> <--joint_localframe>
@@ -59,3 +59,4 @@ python -m script.main './models/ur3e/ur3e.urdf' './data' './models/ur3e/ur3e_joi
 python -m script.main './models/franka/franka.urdf' './data' './models/franka/franka_joints.yaml' --decimate=0.5 --create_convex_hull
 
 ```
+<pre>
