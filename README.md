@@ -1,10 +1,10 @@
 # model_export
 基于blender(3.6.0)的机器人外发模型操作工具
-
+<pre>
 # 基本信息
 setup(
-  --  name='model_export',  
-  --  version='0.1.0',  
+    name='model_export',  
+    version='0.1.0',  
     description='A toolpackage for 3D processing and manipulation in Python from urdf to blender',   
     author='Haitao Xu',    
     author_email='haitaoxu_tok@outlook.com',   
@@ -46,7 +46,7 @@ options:
 - 建convex_hull
 - 在特定姿态下更改参考坐标系为基座坐标系
 - 导出3d模型
-
+<pre>
 # 示例
 ```
 python -m <exectue-file> <urdf-path> <output-folder> <yaml-path> <--decimate=decimate_ratio> <--create_convex_hull> <--joint_localframe>
