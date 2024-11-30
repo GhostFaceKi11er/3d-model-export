@@ -35,7 +35,7 @@ options:
   --decimate_ratio DECIMATE_RATIO  
                         输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1  
   --create_convex_hull  启用凸包创建功能（默认禁用）  
-  --joint_localframe    joint启用附坐标系, 默认joint的xyzrpy在输出的json文件中为worldframe  
+  --joint_localframe    joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe  
 
 # 代码框架
 
