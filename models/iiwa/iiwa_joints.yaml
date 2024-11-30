@@ -1,0 +1,10 @@
+joints:
+ world_iiwa_joint: 0
+ iiwa_joint_1: 0
+ iiwa_joint_2: 1
+ iiwa_joint_3: 0
+ iiwa_joint_4: 0
+ iiwa_joint_5: 0
+ iiwa_joint_6: 0
+ iiwa_joint_7: 0
+ iiwa_joint_ee: 0

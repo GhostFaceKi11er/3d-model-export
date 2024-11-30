@@ -81,16 +81,11 @@ def get_jointsdata(robot): #jointOut以Jointnew类存储每一个joint的名字,
             jointToblender.parent = joint.parent
         if joint.child:
             jointToblender.child = joint.child
-            
         jointsOut[joint.name] = jointToblender
     return jointsOut
 
-def FK_and_update_link_xyzrpy(robot, linksOut, jointsOut, ref_joint, ref_config): #计算正运动学并将世界坐标系下joint的xyz, rpy更新到jointsOut
-    if ref_joint: #计算正运动学，得到各个link worldframe的位姿
-        ref = dict(zip(ref_joint, ref_config))
-        fk_result = robot.link_fk(ref) 
-    else:
-        fk_result = robot.link_fk()
+def FK_and_update_link_xyzrpy(robot, linksOut, jointsOut, joints_configuration): #计算正运动学并将世界坐标系下joint的xyz, rpy更新到jointsOut
+    fk_result = robot.link_fk(joints_configuration) #计算正运动学，得到各个link worldframe的位姿
 
     ChildLinkname_ParentJointmatrix = dict()
     for Link, pose in fk_result.items(): #注意： urdf中的link_fk中返回的不是官网上所说的links的位姿，而是返回的joints的位姿！！！所以必须还要将这些齐次矩阵和urdf中每个link的齐次矩阵再相乘一次
@@ -124,7 +119,7 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
             elif link["collision"].endswith((".obj", ".OBJ")):
                 bpy.ops.wm.obj_import(filepath=link["collision"])
         elif link["visual"]:
-            print("没有导入link['collision']")
+            print(f"没有导入link {link['name']}['collision']")
             if link["visual"].endswith((".stl", ".STL")):
                 bpy.ops.import_mesh.stl(filepath=link["visual"]) 
             elif link["visual"].endswith((".glb", ".GLB")):
@@ -132,6 +127,7 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
             elif link["visual"].endswith((".obj", ".OBJ")):
                 bpy.ops.wm.obj_import(filepath=link["visual"])
         else:
+            print(f"没有导入link {link['name']}['collision'] or link['visual']")
             continue
 
         visual_obj = bpy.context.selected_objects[0] 
@@ -140,8 +136,6 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
         visual_obj.location = link["origin_xyz"] 
         visual_obj.rotation_euler = link["origin_rpy"]
             
-
-    #print("所有link已成功附属于对应的joint并完成机械臂构建")
 
 def joint_in_local_or_world(robot, joint_xyzrpy_in_LocalFrame, data): #如果指令中有joint_localframe, 则执行下面的代码,输出附坐标系下的joint的位姿
     if joint_xyzrpy_in_LocalFrame: 
@@ -153,13 +147,13 @@ def joint_in_local_or_world(robot, joint_xyzrpy_in_LocalFrame, data): #如果指
             index += 1
 
 
-def get_info_fromURDF(input_path, output_path, ref_joint, ref_config, joint_xyzrpy_in_LocalFrame):
+def get_info_fromURDF(input_path, output_path, joints_configuration, joint_xyzrpy_in_LocalFrame):
     robot = URDF.load(input_path)
     filenameFront = os.path.dirname(input_path)
 
     linksOut = get_linksdata(robot, filenameFront) #在linksOut中以Linknew类存储每一个link的名字, xyz, rpy, visual的3d模型路径, collision的3d模型路径
     jointsOut = get_jointsdata(robot) #jointOut以Jointnew类存储每一个joint的名字, origin matrix
-    linksOut, jointsOut = FK_and_update_link_xyzrpy(robot, linksOut, jointsOut, ref_joint, ref_config) #计算正运动学并将世界坐标系下joint的xyz, rpy更新到jointsOut
+    linksOut, jointsOut = FK_and_update_link_xyzrpy(robot, linksOut, jointsOut, joints_configuration) #计算正运动学并将世界坐标系下joint的xyz, rpy更新到jointsOut
 
     data = {
         "links": [link.to_dict() for link in linksOut.values()],
