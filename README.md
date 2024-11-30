@@ -23,9 +23,9 @@ setup(
 usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path  
 
 positional arguments:  
-  urdf_path             输入urdf的路径 示例: './ur3e/ur3e.urdf'  
-  output_folder         输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='./data'  
-  yaml_path             输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'  
+'  urdf_path             输入urdf的路径 示例: './ur3e/ur3e.urdf'  '
+'  output_folder         输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径 示例: --output_foler='./data'  '
+'  yaml_path             输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'  '
 
 options:  
   -h, --help            show this help message and exit  
