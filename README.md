@@ -21,21 +21,21 @@ setup(
 )  
 
  #  帮助
-usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path
+usage: test [-h] [--output_type {stl,glb,obj}] [--decimate_ratio DECIMATE_RATIO] [--create_convex_hull] [--joint_localframe] urdf_path output_folder yaml_path  
 
-positional arguments:
-  urdf_path             输入urdf的路径 示例: './ur3e/ur3e.urdf'
-  output_folder         输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='./data'
-  yaml_path             输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'
+positional arguments:  
+  urdf_path             输入urdf的路径 示例: './ur3e/ur3e.urdf'  
+  output_folder         输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='./data'  
+  yaml_path             输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'  
 
-options:
-  -h, --help            show this help message and exit
-  --output_type {stl,glb,obj}
-                        指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb
-  --decimate_ratio DECIMATE_RATIO
-                        输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1
-  --create_convex_hull  启用凸包创建功能（默认禁用）
-  --joint_localframe    joint启用附坐标系, 默认joint的xyzrpy在输出的json文件中为worldframe
+options:  
+  -h, --help            show this help message and exit  
+  --output_type {stl,glb,obj}  
+                        指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb  
+  --decimate_ratio DECIMATE_RATIO  
+                        输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1  
+  --create_convex_hull  启用凸包创建功能（默认禁用）  
+  --joint_localframe    joint启用附坐标系, 默认joint的xyzrpy在输出的json文件中为worldframe  
 
 # 代码框架
 
