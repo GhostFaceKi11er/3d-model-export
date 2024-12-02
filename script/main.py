@@ -1,14 +1,14 @@
 import bpy
 import os
 import json
-import yaml
+
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete() # 清除blender中的所有对象
 
-from model_export.createConvexHull import create_convex_hull
+from model_export.create_convex_hull import create_convex_hull
 from model_export.simplify import simplify
 from model_export.process_urdf import get_info_fromURDF
-from model_export.exportInWorldframe import export_in_WorldFrame
+from model_export.export_in_worldframe import export_in_WorldFrame
 import argparse
 
 def main():
@@ -34,12 +34,13 @@ def main():
 
         urdf_path='./ur3e/ur3e.urdf'   输入urdf的路径
         output_foler='./data'   输入输出数据的文件夹路径
-        yaml_path='./models/franka/franka_joints.yaml'  输入yml的路径, 存储的是joints的configuration
 
+        --yaml_path='./models/franka/franka_joints.yaml'  输入yml的路径, 存储的是joints的configuration
         --output_type 指定输出文件类型. 选项: stl、glb、obj
         --decimate=0.1   输入decimate ratio来简化模型
         --create_convex_hull  输入指令创建凸包
-        --joint_localframe joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe'''), formatter_class=argparse.RawDescriptionHelpFormatter)
+        --joint_localframe joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe
+        --image 输出图片预览'''), formatter_class=argparse.RawDescriptionHelpFormatter)
 
     def check_decimate_ratio(value):
         try:
@@ -66,13 +67,14 @@ def main():
 
     parser.add_argument('urdf_path', help="输入urdf的路径 示例: './ur3e/ur3e.urdf'")
     parser.add_argument('output_folder', help="输入输出数据的文件夹路径. 该文件夹中有blend文件, 每个link的stl文件, 以及存储每个link和joint的名字, xyz,rpy,visaul的文件路径, 简化后的collision的文件路径示例: --output_foler='./data'")
-    parser.add_argument('yaml_path', help="输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'")
     
+    parser.add_argument('--yaml_path', help="输入yml的路径, 存储的是joints的configuration 示例: './models/franka/franka_joints.yaml'")
     parser.add_argument('--output_type', choices=['stl', 'glb', 'obj'], default='stl', help="指定link的输出文件类型. 选项: stl、glb、obj 默认为 stl. 示例: --output_type glb")
     parser.add_argument('--decimate_ratio', type=check_decimate_ratio, help="输入decimate ratio来简化模型, 范围为(0, 1) 默认为1, 即不简化 示例: --decimate=0.1",default=1)
     parser.add_argument('--create_convex_hull', action='store_true', help="启用凸包创建功能（默认禁用）")
     parser.add_argument('--joint_localframe', action='store_true', help="joint启用附坐标系, 默认joint在输出的模型文件和json文件中为worldframe")
-    
+    parser.add_argument('--image', action='store_true', help="输出图片预览（默认不输出）")
+
     args = parser.parse_args()
 
     output_path = args.output_folder + "/output_data.json" # 输出数据的完整路径
@@ -84,13 +86,9 @@ def main():
     decimate_ratio = args.decimate_ratio 
     joint_xyzrpy_in_LocalFrame = args.joint_localframe
     output_type = args.output_type
+    image = args.image
 
-    with open(yaml_path, 'r') as file:
-        data = yaml.safe_load(file)
-    joints_configuration = data.get('joints', {})
-    print(joints_configuration)
-
-    data = get_info_fromURDF(urdf_input_path, output_path, joints_configuration, joint_xyzrpy_in_LocalFrame) # 从urdf中获取数据并处理，将需要的数据导出到output_path中
+    data = get_info_fromURDF(urdf_input_path, output_path, yaml_path, joint_xyzrpy_in_LocalFrame) # 从urdf中获取数据并处理，将需要的数据导出到output_path中
     print("URDF information extracted successfully.\n")
 
     if args.create_convex_hull:
@@ -102,7 +100,7 @@ def main():
         print("Mesh simplified successfully.\n")
 
 
-    export_in_WorldFrame(joint_xyzrpy_in_LocalFrame, output_type, output_folder, output_path, data) # 将处理后的3d模型和blend文件导出，并在数据json文件中更新路径
+    export_in_WorldFrame(joint_xyzrpy_in_LocalFrame, output_type, output_folder, output_path, data, image) # 将处理后的3d模型和blend文件导出，并在数据json文件中更新路径
     print("Successfully export in World Frame\n")
 
 if __name__ == "__main__":

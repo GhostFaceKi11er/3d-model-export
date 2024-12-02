@@ -65,7 +65,7 @@
     <visual>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/base.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/base.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -74,7 +74,7 @@
     <collision>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/base.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/base.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -87,7 +87,7 @@
     <visual>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/shoulder.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/shoulder.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -96,7 +96,7 @@
     <collision>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/shoulder.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/shoulder.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -109,7 +109,7 @@
     <visual>
       <origin rpy="1.57079632679 0 -1.57079632679" xyz="0 0 0.12"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/upperarm.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/upperarm.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -118,7 +118,7 @@
     <collision>
       <origin rpy="1.57079632679 0 -1.57079632679" xyz="0 0 0.12"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/upperarm.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/upperarm.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -131,7 +131,7 @@
     <visual>
       <origin rpy="1.57079632679 0 -1.57079632679" xyz="0 0 0.027"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/forearm.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/forearm.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -140,7 +140,7 @@
     <collision>
       <origin rpy="1.57079632679 0 -1.57079632679" xyz="0 0 0.027"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/forearm.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/forearm.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -154,7 +154,7 @@
       <!-- TODO: Move this to a parameter -->
       <origin rpy="1.57079632679 0 0" xyz="0 0 -0.104"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/wrist1.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/wrist1.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -163,7 +163,7 @@
     <collision>
       <origin rpy="1.57079632679 0 0" xyz="0 0 -0.104"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/wrist1.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/wrist1.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -176,7 +176,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 -0.08535"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/wrist2.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/wrist2.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -185,7 +185,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.08535"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/wrist2.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/wrist2.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -198,7 +198,7 @@
     <visual>
       <origin rpy="1.57079632679 0 0" xyz="0 0 -0.0921"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/visual/wrist3.dae"/>
+        <mesh filename="ur3e_description/meshes/ur3e/visual/wrist3.dae"/>
       </geometry>
       <material name="LightGrey">
         <color rgba="0.7 0.7 0.7 1.0"/>
@@ -207,7 +207,7 @@
     <collision>
       <origin rpy="1.57079632679 0 0" xyz="0 0 -0.0921"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/ur3e/collision/wrist3.stl"/>
+        <mesh filename="ur3e_description/meshes/ur3e/collision/wrist3.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -314,13 +314,13 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 -0.032"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/base10.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/base10.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.032"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/base10.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/base10.dae"/>
       </geometry>
     </collision>
   </link>
@@ -355,13 +355,13 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0.01313 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/h10.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/h10.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0.01313 0"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/h10.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/h10.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -370,13 +370,13 @@
     <visual>
       <origin xyz="-0.0007 0 -0.01002"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/h11.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/h11.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="-0.0007 0 -0.01002"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/h11.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/h11.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -417,13 +417,13 @@
     <visual>
       <origin xyz="0 0 0.02442"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d10.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d10.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0.02442"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d10.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d10.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -431,36 +431,36 @@
   <link name="right_hand_a">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d11.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d11.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d11.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d11.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_b">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d12.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d12.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d12.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d12.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_c">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d13.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d13.dae" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/d13.dae" scale="1 1 1"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/d13.dae" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -469,49 +469,49 @@
     <visual>
       <origin xyz="0 0 0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f10.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f10.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f10.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f10.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_l">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f11.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f11.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f11.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f11.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_p">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f12.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f12.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f12.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f12.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_t">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f13.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f13.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f13.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f13.dae"/>
       </geometry>
     </collision>
   </link>
@@ -520,49 +520,49 @@
     <visual>
       <origin xyz="0 0 0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f20.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f20.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f20.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f20.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_k">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f21.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f21.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f21.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f21.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_o">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f22.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f22.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f22.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f22.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_s">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f23.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f23.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f23.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f23.dae"/>
       </geometry>
     </collision>
   </link>
@@ -571,49 +571,49 @@
     <visual>
       <origin xyz="0 0 -0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f30.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f30.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 -0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f30.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f30.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_j">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f31.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f31.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f31.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f31.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_n">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f32.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f32.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f32.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f32.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_r">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f33.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f33.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f33.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f33.dae"/>
       </geometry>
     </collision>
   </link>
@@ -622,49 +622,49 @@
     <visual>
       <origin xyz="0 0 -0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f40.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f40.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 -0.01321"/>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f40.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f40.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_i">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f41.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f41.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f41.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f41.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_m">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f42.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f42.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f42.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f42.dae"/>
       </geometry>
     </collision>
   </link>
   <link name="right_hand_q">
     <visual>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f43.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f43.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://ur3e_description/meshes/schunk_hand/f43.dae"/>
+        <mesh filename="ur3e_description/meshes/schunk_hand/f43.dae"/>
       </geometry>
     </collision>
   </link>
