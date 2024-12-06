@@ -59,13 +59,11 @@ python -m <exectue-file> <urdf-path> <output-folder> <yaml-path> <--decimate=dec
 
 python -m script.main './models/iiwa/iiwa.urdf' './data'   --yaml_path='./models/iiwa/iiwa_joints.yaml' --decimate=0.5 --create_convex_hull --joint_localframe
 
-python -m script.main './models/ur3e/ur3e_with_schunk_hand.urdf' './data' --decimate=0.5 --create_convex_hull
+python -m script.main './models/ur3e/ur3e.urdf' './data' --decimate=0.5 --create_convex_hull --joint_localframe
 
-python -m script.main './models/franka/franka.urdf' './data' --yaml_path='./models/franka/franka_joints.yaml' --decimate=0.5 --create_convex_hull --joint_localframe
+python -m script.main './models/franka/franka.urdf' './data' --yaml_path='./models/franka/franka_joints.yaml' --decimate=0.5 --create_convex_hull --joint_localframe --output_type obj
 
-python -m script.main './models/unitree_a1/a1.urdf' './data' --decimate=0.5 --create_convex_hull --output_type glb --joint_localframe
-
-python -m script.main './models/thor10iw_700_description/urdf/thor10iw_700_robot.urdf' './data' --decimate=0.5 --create_convex_hull --output_type glb
+python -m script.main './models/thor10iw_700_description/urdf/thor10iw_700_robot.urdf' './data' --decimate=0.5 --create_convex_hull --output_type glb --joint_localframe
 
 ```
 

@@ -53,7 +53,7 @@ def get_linksdata(robot, filenameFront): # 在linksOut中键为每一个link的�
             linkToblender.origin = link.visuals[0].origin
 
         if link.visuals and link.visuals[0].geometry and link.visuals[0].geometry.mesh and link.visuals[0].geometry.mesh.filename:
-            if link.visuals[0].geometry.mesh.filename.endswith((".stl", ".glb", ".obj", ".STL", ".GLB", ".OBJ", ".dae", ".DAE")):
+            if link.visuals[0].geometry.mesh.filename.endswith((".stl", ".glb", ".obj", ".STL", ".GLB", ".OBJ")):
                 linkToblender.visual = os.path.join(filenameFront, link.visuals[0].geometry.mesh.filename)
             else:
                 print(f"警告: link {link.name} visual的模型不是stl/glb/obj文件!")
@@ -61,7 +61,7 @@ def get_linksdata(robot, filenameFront): # 在linksOut中键为每一个link的�
             print(f"警告: link {link.name}的visual mesh缺失或无效!")
 
         if link.collisions and link.collisions[0].geometry and link.collisions[0].geometry.mesh and link.collisions[0].geometry.mesh.filename:
-            if link.collisions[0].geometry.mesh.filename.endswith((".stl", ".glb", ".obj", ".STL", ".GLB", ".OBJ", ".dae", ".DAE")):
+            if link.collisions[0].geometry.mesh.filename.endswith((".stl", ".glb", ".obj", ".STL", ".GLB", ".OBJ")):
                 linkToblender.collision = os.path.join(filenameFront, link.collisions[0].geometry.mesh.filename)
             else:
                 print(f"警告: link {link.name}的collision的模型不是stl/glb/obj文件!")
@@ -126,26 +126,25 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
         new_collection.objects.link(bpy.data.objects.get(joint["name"]))
 
     for link in data["links"]: #在blender中将links的3d模型导出
-        if link["collision"]: 
-            if link["collision"].endswith((".stl", ".STL")):
-                bpy.ops.import_mesh.stl(filepath=link["collision"]) 
-            elif link["collision"].endswith((".glb", ".GLB")):
-                bpy.ops.import_scene.gltf(filepath=link["collision"])
-            elif link["collision"].endswith((".obj", ".OBJ")):
-                bpy.ops.wm.obj_import(filepath=link["collision"], forward_axis='NEGATIVE_Z', up_axis='Y')
-            elif link["collision"].endswith((".dae", ".DAE")):
-                bpy.ops.wm.collada_import(filepath=link["collision"])
-            print(f"导入link {link['name']}['collision']")
-        elif link["visual"]:
+        import_type = ''
+        if link["visual"]:
             if link["visual"].endswith((".stl", ".STL")):
-                bpy.ops.import_mesh.stl(filepath=link["visual"]) 
+                bpy.ops.import_mesh.stl(filepath=link["visual"], axis_forward='Y', axis_up='Z') 
             elif link["visual"].endswith((".glb", ".GLB")):
                 bpy.ops.import_scene.gltf(filepath=link["visual"])
             elif link["visual"].endswith((".obj", ".OBJ")):
-                bpy.ops.wm.obj_import(filepath=link["visual"])
-            elif link["visual"].endswith((".dae", ".DAE")):
-                bpy.ops.wm.collada_import(filepath=link["visual"])
+                bpy.ops.wm.obj_import(filepath=link["visual"], forward_axis='Y', up_axis='Z')
             print(f"导入link {link['name']}['visual']")
+            import_type = 'visual'
+        elif link["collision"]: 
+            if link["collision"].endswith((".stl", ".STL")):
+                bpy.ops.import_mesh.stl(filepath=link["collision"], axis_forward='Y', axis_up='Z') 
+            elif link["collision"].endswith((".glb", ".GLB")):
+                bpy.ops.import_scene.gltf(filepath=link["collision"])
+            elif link["collision"].endswith((".obj", ".OBJ"), forward_axis='Y', up_axis='Z'):
+                bpy.ops.wm.obj_import(filepath=link["collision"])
+            print(f"导入link {link['name']}['collision']")
+            import_type = 'collision'
         else:
             print(f"没有导入link {link['name']}['collision'] or link['visual']")
             continue
@@ -154,11 +153,14 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
         visual_obj.name = link["name"]
 
         visual_obj.location = link["origin_xyz"]
-        if link["collision"].endswith((".glb", ".GLB")) or link["visual"].endswith((".glb", ".GLB")):
+        if link["visual"].endswith((".glb", ".GLB")) and import_type=='visual':
             visual_obj.rotation_mode = 'XYZ'
-            link["origin_rpy"][0] -= 1.5708
+            visual_obj.rotation_euler = link["origin_rpy"]
+        elif link["collision"].endswith((".glb", ".GLB")) and import_type=='collision':
+            visual_obj.rotation_mode = 'XYZ'
             visual_obj.rotation_euler = link["origin_rpy"]
         else:
+            visual_obj.rotation_mode = 'XYZ'
             visual_obj.rotation_euler = link["origin_rpy"]
 
         existing_collection = bpy.data.collections.get('Collection')
@@ -170,14 +172,13 @@ def show_in_blender(data): #在blender中显示出link和joint的坐标轴
             scene_collection.children.link(new_collection)
         new_collection.objects.link(bpy.data.objects.get(link["name"]))
 
-def joint_in_local_or_world(robot, joint_xyzrpy_in_LocalFrame, data): #如果指令中有joint_localframe, 则执行下面的代码,输出附坐标系下的joint的位姿
-    if joint_xyzrpy_in_LocalFrame: 
-        index = 0
-        for joint in data["joints"]:
-            xyzrpy = urchin.matrix_to_xyz_rpy(robot.joints[index].origin).tolist()
-            joint["origin_xyz"] = xyzrpy[:3]
-            joint["origin_rpy"] = xyzrpy[3:]
-            index += 1
+def joint_in_local_or_world(robot, data): #如果指令中有joint_localframe, 则执行下面的代码,输出附坐标系下的joint的位姿
+    index = 0
+    for joint in data["joints"]:
+        xyzrpy = urchin.matrix_to_xyz_rpy(robot.joints[index].origin).tolist()
+        joint["origin_xyz"] = xyzrpy[:3]
+        joint["origin_rpy"] = xyzrpy[3:]
+        index += 1
 
 
 def get_info_fromURDF(input_path, output_path, yaml_path, joint_xyzrpy_in_LocalFrame):
@@ -194,7 +195,8 @@ def get_info_fromURDF(input_path, output_path, yaml_path, joint_xyzrpy_in_LocalF
         }
 
     show_in_blender(data) #在blender中显示出link和joint的坐标轴
-    joint_in_local_or_world(robot, joint_xyzrpy_in_LocalFrame, data) #如果指令中有joint_localframe, 则执行下面的代码,输出附坐标系下的joint的位姿
+    if joint_xyzrpy_in_LocalFrame: #如果指令中有joint_localframe, 则执行下面的代码,输出附坐标系下的joint的位姿
+        joint_in_local_or_world(robot, data) 
 
     with open(output_path, "w") as json_file: # 输出从urdf中读取到的links和joints的信息
         json.dump(data, json_file, indent=4)
